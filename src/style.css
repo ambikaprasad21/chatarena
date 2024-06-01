@@ -1,0 +1,66 @@
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.list-disc-green li::marker {
+  color: lightgreen;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Meta information */
+.meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+/* Circle for sender's name */
+.sender-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #128c7e; /* Change color as needed */
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Sender's name and time */
+.sender-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Name */
+.name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Time */
+.time {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Message text */
+.text {
+  font-size: 0.9rem;
+  color: #333;
+  margin: 0;
+}

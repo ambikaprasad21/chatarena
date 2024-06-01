@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>ChatArena</title>
+  </head>
+  <body class="h-screen">
+    <div class="flex flex-col h-full dark:bg-slate-700">
+      <div
+        class="flex items-center justify-between px-8 py-2 border-b-1 border-gray-200 dark:bg-slate-500 dark:text-white shadow-xl"
+      >
+        <h2 class="text-xl font-semibold tracking-wide">ChatArena</h2>
+        <div
+          class="transition ease-in-out delay-100 cursor-pointer px-3 py-2 border-2 border-transparent hover:border-2 hover:px-3 hover:py-2 hover:bg-gray-200 dark:hover:bg-slate-400 hover:rounded-full"
+          id="sun-icon"
+        >
+          <i class="fas" id="theme-icon"></i>
+        </div>
+      </div>
+
+      <div
+        class="container mx-auto flex flex-grow gap-8 h-96 my-2 py-4 px-6 bg-gray-300 rounded-lg"
+      >
+        <!-- Left Sidebar -->
+        <div
+          class="chat-sidebar p-6 w-1/4 shadow-lg flex flex-col bg-white dark:bg-zinc-900 dark:text-white rounded-lg"
+        >
+          <div>
+            <h3 class="text-xl font-semibold mb-4">
+              <i class="fas fa-comments mr-2"></i> ChatArena Name
+            </h3>
+            <h2
+              id="room-name"
+              class="text-lg font-medium mb-4 text-center bg-slate-300 px-4 py-1 text-indigo-600"
+            >
+              Room Name
+            </h2>
+          </div>
+
+          <h3 class="text-lg font-semibold mb-2">
+            <i class="fas fa-users mr-2"></i>Users
+          </h3>
+          <ul
+            id="users"
+            class="list-disc list-disc-green list-inside overflow-auto flex-grow mb-4"
+          ></ul>
+
+          <button
+            onclick="leaveRoom()"
+            class="leave-room-btn p-2 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+          >
+            Leave Room
+          </button>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="flex flex-col flex-grow space-y-4">
+          <div
+            class="chat-messages flex-grow bg-white dark:bg-zinc-900 p-4 rounded-lg shadow-lg overflow-auto"
+          ></div>
+          <!-- Chat Form -->
+          <div class="chat-form-container">
+            <form id="chat-form" class="flex relative">
+              <input
+                id="msg"
+                class="flex-grow p-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="text"
+                placeholder="Enter Message"
+                required
+                autocomplete="off"
+              />
+
+              <button
+                class="btn p-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- include the socket.io library in client side -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+      function leaveRoom() {
+        window.location.href = "index.html";
+      }
+
+      const sunIcon = document.getElementById("sun-icon");
+      const themeIcon = document.getElementById("theme-icon");
+      const body = document.body;
+
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      if (isDarkMode) {
+        enableDarkMode();
+      }
+
+      function toggleDarkMode() {
+        if (body.classList.contains("dark")) {
+          disableDarkMode();
+          localStorage.setItem("darkMode", "false");
+        } else {
+          enableDarkMode();
+          localStorage.setItem("darkMode", "true");
+        }
+      }
+
+      function enableDarkMode() {
+        body.classList.add("dark");
+
+        themeIcon.classList.remove("fa-sun");
+        themeIcon.classList.add("fa-moon");
+      }
+
+      function disableDarkMode() {
+        body.classList.remove("dark");
+
+        themeIcon.classList.remove("fa-moon");
+        themeIcon.classList.add("fa-sun");
+      }
+
+      sunIcon.addEventListener("click", toggleDarkMode);
+    </script>
+  </body>
+</html>

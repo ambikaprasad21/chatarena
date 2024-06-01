@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>ChatArena</title>
+  </head>
+  <body class="h-screen">
+    
+    <div class="dark:text-white flex flex-col h-full">
+      <div class="flex items-center justify-between px-8 py-2 border-b-1 border-gray-200 dark:bg-slate-500 dark:text-white shadow-xl">
+        <h2 class="text-xl font-semibold tracking-wide">ChatArena</h2>
+        <div class="transition ease-in-out delay-100  cursor-pointer px-3 py-2 border-2 border-transparent hover:border-2 hover:px-3 hover:py-2 hover:bg-gray-200 dark:hover:bg-slate-400 hover:rounded-full" id="sun-icon">
+          <i class="fas" id="theme-icon" ></i>
+        </div>
+        
+      </div>
+
+      <div class=" flex flex-grow items-center justify-center flex-col dark:bg-slate-700">
+        
+        <div class="p-8">
+          <p class="text-xl font-semibold tracking-wide">ChatArena</p>
+        </div>
+       
+          <form action="chatarea.html" class="flex flex-col gap-4">
+            <input type="text" name="username"
+            id="username" placeholder="username" class="text-black dark:bg rounded-full px-5 py-2 border-2 outline-none" required>
+            <select name="room" id="room" class=" text-black rounded-full px-5 py-2 border-2 outline-none">
+              <option value="Python">Python</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="C++">C++</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Data Sceince">Data Sceince</option>
+            </select>
+            <button type="submit" class=" btn transition ease-in-out delay-50 bg-green-400 py-2 px-4 rounded-xl hover:bg-green-500 text-white font-semibold">Join Chat</button>
+          </form>
+      </div>
+    </div>
+
+
+    <!-- include the socket.io library in client side -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+       // Toggle theme and save preference to localStorage
+       const sunIcon = document.getElementById("sun-icon");
+       const themeIcon = document.getElementById("theme-icon");
+        const body = document.body;
+
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+            enableDarkMode();
+        }
+
+        function toggleDarkMode() {
+            if (body.classList.contains("dark")) {
+                disableDarkMode();
+                
+                localStorage.setItem("darkMode", "false");
+            } else {
+                
+                enableDarkMode();
+                localStorage.setItem("darkMode", "true");
+            }
+        }
+
+        function enableDarkMode() {
+            body.classList.add("dark");
+
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+        }
+
+        function disableDarkMode() {
+            body.classList.remove("dark");
+
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+        }
+
+        sunIcon.addEventListener("click", toggleDarkMode);
+    </script>
+  </body>
+</html>
