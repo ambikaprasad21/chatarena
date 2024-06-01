@@ -6,6 +6,10 @@
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>"
+    />
     <title>ChatArena</title>
   </head>
   <body class="h-screen">
@@ -34,6 +38,7 @@
               <option value="C++">C++</option>
               <option value="Web Development">Web Development</option>
               <option value="Data Sceince">Data Sceince</option>
+              <option value="Casual Chat">Casual Chat</option>
             </select>
             <button type="submit" class=" btn transition ease-in-out delay-50 bg-green-400 py-2 px-4 rounded-xl hover:bg-green-500 text-white font-semibold">Join Chat</button>
           </form>
@@ -53,6 +58,8 @@
         const isDarkMode = localStorage.getItem("darkMode") === "true";
         if (isDarkMode) {
             enableDarkMode();
+        }else{
+          disableDarkMode();
         }
 
         function toggleDarkMode() {
