@@ -1,6 +1,6 @@
 <h1 align="center" id="title">ChatArena</h1>
 
-<p id="description">ChatGPT ChatArena is a vibrant online platform where individuals from diverse backgrounds converge to engage in lively conversations and share their thoughts in real-time. With a plethora of chat rooms catering to various interests and topics ChatArena provides a dynamic space for the public to connect interact and exchange ideas. Whether discussing the latest trends in technology exploring the intricacies of programming languages or simply unwinding with casual banter ChatArena offers a welcoming environment for all to express themselves freely. Join us today and become a part of our vibrant community of chat enthusiasts!</p>
+<p id="description">ChatArena is a vibrant online platform where individuals from diverse backgrounds converge to engage in lively conversations and share their thoughts in real-time. With a plethora of chat rooms catering to various interests and topics ChatArena provides a dynamic space for the public to connect interact and exchange ideas. Whether discussing the latest trends in technology exploring the intricacies of programming languages or simply unwinding with casual banter ChatArena offers a welcoming environment for all to express themselves freely. Join us today and become a part of our vibrant community of chat enthusiasts!</p>
 
   
   
